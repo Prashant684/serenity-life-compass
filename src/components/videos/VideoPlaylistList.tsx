@@ -19,7 +19,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { VideoPlaylist, VideoItem } from "@/types/video";
 import { toast } from "@/components/ui/use-toast";
-import { Plus, YouTube } from "lucide-react";
+import { Plus, Youtube } from "lucide-react";
 
 export function VideoPlaylistList() {
   const [playlists, setPlaylists] = useState<VideoPlaylist[]>([]);
@@ -94,7 +94,7 @@ export function VideoPlaylistList() {
               <div>
                 <CardTitle className="flex items-center">
                   {playlist.source === 'youtube' && (
-                    <YouTube className="h-5 w-5 mr-2 text-red-500" />
+                    <Youtube className="h-5 w-5 mr-2 text-red-500" />
                   )}
                   {playlist.title}
                 </CardTitle>

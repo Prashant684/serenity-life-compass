@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
-import { Sync } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { VideoPlaylist } from "@/types/video";
 import { v4 as uuidv4 } from "uuid";
 
@@ -120,12 +120,12 @@ export function YoutubePlaylistSync({ onPlaylistsAdded }: YoutubePlaylistSyncPro
               >
                 {isSyncing ? (
                   <>
-                    <Sync className="mr-2 h-4 w-4 animate-spin" />
+                    <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
                     Syncing
                   </>
                 ) : (
                   <>
-                    <Sync className="mr-2 h-4 w-4" />
+                    <RefreshCw className="mr-2 h-4 w-4" />
                     Sync
                   </>
                 )}
