@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { Layout } from "./components/layout/Layout";
 import DashboardPage from "./pages/DashboardPage";
 import JournalPage from "./pages/JournalPage";
@@ -22,20 +23,62 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={<Layout><DashboardPage /></Layout>} />
-            <Route path="/journal" element={<Layout><JournalPage /></Layout>} />
-            <Route path="/tasks" element={<Layout><TasksPage /></Layout>} />
-            <Route path="/vision" element={<Layout><VisionPage /></Layout>} />
-            <Route path="/planning" element={<Layout><PlanningPage /></Layout>} />
-            <Route path="/videos" element={<Layout><VideoTrackingPage /></Layout>} />
+            <Route 
+              path="/" 
+              element={
+                <ProtectedRoute>
+                  <Layout><DashboardPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/journal" 
+              element={
+                <ProtectedRoute>
+                  <Layout><JournalPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/tasks" 
+              element={
+                <ProtectedRoute>
+                  <Layout><TasksPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/vision" 
+              element={
+                <ProtectedRoute>
+                  <Layout><VisionPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/planning" 
+              element={
+                <ProtectedRoute>
+                  <Layout><PlanningPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/videos" 
+              element={
+                <ProtectedRoute>
+                  <Layout><VideoTrackingPage /></Layout>
+                </ProtectedRoute>
+              } 
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

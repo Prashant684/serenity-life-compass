@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   Home,
@@ -11,7 +11,8 @@ import {
   Menu,
   X,
   User,
-  Video
+  Video,
+  LogOut
 } from "lucide-react";
 
 import {
@@ -20,6 +21,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 type NavItem = {
   label: string;
@@ -37,6 +39,14 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
+  const { isAuthenticated, logout, user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   return (
     <>
       {/* Desktop Sidebar */}
@@ -68,13 +78,28 @@ export function Sidebar() {
         </nav>
         
         <div className="mt-auto pt-4 border-t">
-          <NavLink
-            to="/login"
-            className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-secondary transition-all"
-          >
-            <User className="h-4 w-4 mr-3" />
-            Account
-          </NavLink>
+          {isAuthenticated ? (
+            <>
+              <div className="px-3 py-2 mb-2 text-sm text-muted-foreground">
+                {user?.email}
+              </div>
+              <button
+                onClick={handleLogout}
+                className="flex w-full items-center px-3 py-2 rounded-md text-sm font-medium text-red-500 hover:bg-secondary transition-all"
+              >
+                <LogOut className="h-4 w-4 mr-3" />
+                Logout
+              </button>
+            </>
+          ) : (
+            <NavLink
+              to="/login"
+              className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-secondary transition-all"
+            >
+              <User className="h-4 w-4 mr-3" />
+              Login
+            </NavLink>
+          )}
         </div>
       </aside>
 
@@ -115,13 +140,28 @@ export function Sidebar() {
             </nav>
             
             <div className="mt-auto pt-4 border-t">
-              <NavLink
-                to="/login"
-                className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-secondary transition-all"
-              >
-                <User className="h-4 w-4 mr-3" />
-                Account
-              </NavLink>
+              {isAuthenticated ? (
+                <>
+                  <div className="px-3 py-2 mb-2 text-sm text-muted-foreground">
+                    {user?.email}
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex w-full items-center px-3 py-2 rounded-md text-sm font-medium text-red-500 hover:bg-secondary transition-all"
+                  >
+                    <LogOut className="h-4 w-4 mr-3" />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-secondary transition-all"
+                >
+                  <User className="h-4 w-4 mr-3" />
+                  Login
+                </NavLink>
+              )}
             </div>
           </div>
         </SheetContent>
