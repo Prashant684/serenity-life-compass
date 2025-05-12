@@ -10,7 +10,8 @@ import {
   CalendarCheck,
   Menu,
   X,
-  User
+  User,
+  Video
 } from "lucide-react";
 
 import {
@@ -32,6 +33,7 @@ const navItems: NavItem[] = [
   { label: "Tasks", path: "/tasks", icon: CheckSquare },
   { label: "Vision", path: "/vision", icon: Target },
   { label: "Planning", path: "/planning", icon: CalendarCheck },
+  { label: "Videos", path: "/videos", icon: Video },
 ];
 
 export function Sidebar() {

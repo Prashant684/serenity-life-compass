@@ -11,6 +11,7 @@ import JournalPage from "./pages/JournalPage";
 import TasksPage from "./pages/TasksPage";
 import VisionPage from "./pages/VisionPage";
 import PlanningPage from "./pages/PlanningPage";
+import VideoTrackingPage from "./pages/VideoTrackingPage";
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/tasks" element={<Layout><TasksPage /></Layout>} />
             <Route path="/vision" element={<Layout><VisionPage /></Layout>} />
             <Route path="/planning" element={<Layout><PlanningPage /></Layout>} />
+            <Route path="/videos" element={<Layout><VideoTrackingPage /></Layout>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
