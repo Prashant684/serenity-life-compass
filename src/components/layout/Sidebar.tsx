@@ -52,7 +52,7 @@ export function Sidebar() {
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex flex-col w-64 p-4 border-r border-border bg-card">
         <div className="mb-8">
-          <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">Serenity</h1>
+          <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">ynotx</h1>
           <p className="text-xs text-muted-foreground">Life Compass</p>
         </div>
         
@@ -114,7 +114,7 @@ export function Sidebar() {
         <SheetContent side="left" className="w-[240px] sm:w-[280px]">
           <div className="flex flex-col h-full">
             <div className="mb-8">
-              <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">Serenity</h1>
+              <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">ynotx</h1>
               <p className="text-xs text-muted-foreground">Life Compass</p>
             </div>
             

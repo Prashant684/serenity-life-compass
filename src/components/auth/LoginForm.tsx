@@ -47,7 +47,7 @@ export function LoginForm() {
     <div className="flex justify-center items-center min-h-[calc(100vh-4rem)]">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">Welcome to Serenity</CardTitle>
+          <CardTitle className="text-2xl text-center">Welcome to ynotx</CardTitle>
           <CardDescription className="text-center">
             Sign in to your Life Compass account
           </CardDescription>
