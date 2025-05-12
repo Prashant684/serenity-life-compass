@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
+import { Logo } from "@/components/ui/Logo";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -46,7 +47,10 @@ export function LoginForm() {
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-4rem)]">
       <Card className="w-full max-w-md">
-        <CardHeader>
+        <CardHeader className="space-y-4">
+          <div className="flex justify-center">
+            <Logo className="h-12" />
+          </div>
           <CardTitle className="text-2xl text-center">Welcome to ynotx</CardTitle>
           <CardDescription className="text-center">
             Sign in to your Life Compass account

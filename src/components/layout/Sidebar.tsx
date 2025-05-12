@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
+import { Logo } from "@/components/ui/Logo";
 
 type NavItem = {
   label: string;
@@ -51,8 +52,8 @@ export function Sidebar() {
     <>
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex flex-col w-64 p-4 border-r border-border bg-card">
-        <div className="mb-8">
-          <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">ynotx</h1>
+        <div className="mb-8 flex flex-col items-start">
+          <Logo className="mb-2" />
           <p className="text-xs text-muted-foreground">Life Compass</p>
         </div>
         
@@ -113,8 +114,8 @@ export function Sidebar() {
         </SheetTrigger>
         <SheetContent side="left" className="w-[240px] sm:w-[280px]">
           <div className="flex flex-col h-full">
-            <div className="mb-8">
-              <h1 className="text-xl font-semibold text-serenity-700 dark:text-serenity-300">ynotx</h1>
+            <div className="mb-8 flex flex-col items-start">
+              <Logo className="mb-2" />
               <p className="text-xs text-muted-foreground">Life Compass</p>
             </div>
             
